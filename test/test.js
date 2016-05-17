@@ -76,4 +76,27 @@ describe("compose-middleware-function", function () {
     
     compose(mw)(context)
    })
+  
+  it("should return a function that is a valid embeddable middleware in a parent composition", function () {
+    var checklist = {
+      parent : false,
+      nested : false
+    }
+    
+    var superMw = [
+      compose([
+        function (context, next) {
+          checklist.nested = true
+          next()
+        }
+      ]),
+      function (context, next) {
+        checklist.parent = true
+      }
+    ]
+    
+    compose(superMw)()
+    
+    assert(checklist.parent && checklist.nested)
+  })
 })

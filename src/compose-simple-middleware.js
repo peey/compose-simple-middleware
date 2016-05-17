@@ -8,13 +8,20 @@
   
   var compose = function (list) {
     
-    return function (context) { // the function returned
+    return function (context, superNext) { // the function returned
       var executionIndex = 0
 
       var next = function () {
         executionIndex++
         if (executionIndex >= list.length) {
-          return null  // if the last middleware function calls next() when no next middlware fn exists, that nonexistent fn will return null
+          // if the second argument was passed, it means this composition is going to be used
+          // as a middlware function itself, as a part of a larger composition
+          if (superNext) {
+            return superNext()
+          } else {
+          //else the last middleware function calls next() when no next middlware fn exists, that nonexistent fn will return null
+            return null
+          }
         } else {
           return list[executionIndex](context, next)
         }
