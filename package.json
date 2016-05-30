@@ -1,0 +1,17 @@
+{
+  "name": "compose-simple-middleware",
+  "version": "0.1.0",
+  "description": "Middleware composition utility",
+  "main": "src/compose-simple-middleware.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "middleware"
+  ],
+  "author": "Peeyush Kushwaha",
+  "license": "MIT"
+}
