@@ -38,8 +38,7 @@
   
   // for browsers
   if (typeof window !== "undefined") {
-    window['module:peey/compose-simple-middleware'] = compose
-    if (typeof window.composeMiddleware === "undefined") window.composeMiddleware = compose ; // don't overwrite variable if it exists
+    window.composeMiddleware = compose ;
   }
 
 })();
