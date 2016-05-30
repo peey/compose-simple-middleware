@@ -1,6 +1,6 @@
 {
   "name": "compose-simple-middleware",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Middleware composition utility",
   "main": "src/compose-simple-middleware.js",
   "directories": {
@@ -13,7 +13,7 @@
     "middleware"
   ],
   "author": "Peeyush Kushwaha <peeyush.p97@gmail.com>",
-  "repository": "git://github.com/peey/string-placehold.git",
-  "homepage": "https://github.com/peey/string-placehold",
+  "repository": "git://github.com/peey/compose-simple-middleware.git",
+  "homepage": "https://github.com/peey/compose-simple-middleware",
   "license": "MIT"
 }
