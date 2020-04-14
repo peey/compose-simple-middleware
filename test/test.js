@@ -99,4 +99,21 @@ describe("compose-middleware-function", function () {
     
     assert(checklist.parent && checklist.nested)
   })
+  
+  it("use the arguments sent to the next function and apply them to the next middleware function", function () {
+    var dummy = {}
+    
+    var mw = [
+      function (context, next, arg1) {
+        next(arg1)
+      },
+      function (context, next, arg1) {
+        dummy.arg1 = arg1
+      }
+    ]
+    
+    compose(mw)({}, "test argument")
+    
+    assert(dummy.arg1 === "test argument")
+  })
 })
